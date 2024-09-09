@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="shortcut icon" href="/image/logo.png" type="png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>VIIID - Website</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <header class="nav-header">
+        <img src="/image/logo.png" alt="Logo" width="40" /> VIIID
+      </header>
+
+      <!-- <div class="navbar-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div> -->
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="#tentangkami"
+            ><i class="fa-regular fa-face-meh"></i> Tentang Kami</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#funfact"
+            ><i class="fa-regular fa-face-grin-squint-tears"></i> Fun Facts</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#komen"
+            ><i class="fa-regular fa-comments"></i> Komentar</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="landing">
+        <p class="eighter" data-aos-delay="900" data-aos="fade-down">EIGHTER</p>
+        <p class="land-title" data-aos-delay="600" data-aos="fade-down">
+          CLASS VIIID
+        </p>
+        <div class="desk" data-aos="fade-down" data-aos-delay="300">
+          <p class="land-desk">
+            Kelas 8D DiSekolah SMPN 17 PONTIANAK Dengan Wali Kelas Yaitu Ibu
+            Ritawati Serta Dengan 33 Murid Lainnya.
+          </p>
+        </div>
+        <p class="smart" data-aos="fade-down">#BelajarBersama</p>
+      </div>
+
+      <div class="tentang" id="tentangkami">
+        <div class="des">
+          <p class="t-title" data-aos="fade-right">😁 Tentang Kami</p>
+          <p class="t-desk" data-aos-delay="300" data-aos="fade-right">
+            VIIID memiliki 33 murid didalamnya, dengan 16 laki-laki, dan 17
+            perempuan🤩 <br> sebagai informasi, klik profil murid untuk mendapatkan informasi dan mengomentari murid📍
+          </p>
+        </div>
+        <div class="listed">
+          <table>
+            <thead>
+              <tr>
+                <th>Absen</th>
+                <th>Murid</th>
+                <th>Kelamin</th>
+                <th>Piket</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% murid.forEach(ss => { %> <% if (ss.nama === "Muhammad Nabil") {
+              %>
+              <tr data-aos="fade-right" class="tre">
+                <td class="absen"><%= ss.absen %></td>
+                <td>
+                  <img
+                    class="bordered btn-url"
+                    data-url="<%= ss.nama %>"
+                    src="/image/<%= ss.profile %>.jpg"
+                    alt=""
+                  />
+                  <span><%= ss.nama %></span>
+                </td>
+                <td><%= ss.kelamin %></td>
+                <td><%= ss.piket %></td>
+              </tr>
+              <% } else { %>
+              <tr data-aos="fade-right" class="tre">
+                <td class="absen"><%= ss.absen %></td>
+                <td>
+                  <img
+                    class="bordered2 btn-url"
+                    data-url="<%= ss.nama %>"
+                    src="/image/<%= ss.profile %>.jpg"
+                    alt=""
+                  />
+                  <span><%= ss.nama %></span>
+                </td>
+                <td><%= ss.kelamin %></td>
+                <td><%= ss.piket %></td>
+              </tr>
+              <% } %> <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="informasi" id="funfact">
+        <div class="dos">
+          <div class="fc-f des">
+            <p class="f-title" data-aos="fade-right">🤩 Fakta Menarik</p>
+            <p class="f-desk" data-aos="fade-right" data-aos-delay="300">
+              Fakta menarik ini diambil dari data 2023 yang memang sudah dipilih
+              sendiri oleh murid VIIID😎
+            </p>
+          </div>
+
+          <div class="ct-info">
+            <div class="terapa" data-aos="fade-left" data-aos-delay="600">
+              <div class="imges">
+                <img src="/image/user.jpg" width="50" height="50" />
+              </div>
+              <div class="text">
+                <p class="pmng">Zara Qaireen Syadza</p>
+                <p class="w-desk">Tercantik dikelas</p>
+              </div>
+              <button data-name="Zara Qaireen syadza" class="btn-kjng">
+                Kunjungi
+              </button>
+            </div>
+
+            <div class="terapa" data-aos="fade-left" data-aos-delay="300">
+              <div class="imges">
+                <img src="/image/user.jpg" width="50" height="50" />
+              </div>
+              <div class="text">
+                <p class="pmng">Muhammad Idris</p>
+                <p class="w-desk">Terganteng dikelas</p>
+              </div>
+              <button data-name="Muhammad Idris" class="btn-kjng">
+                Kunjungi
+              </button>
+            </div>
+
+            <div class="terapa" data-aos="fade-left">
+              <div class="imges">
+                <img src="/image/user.jpg" width="50" height="50" />
+              </div>
+              <div class="text">
+                <p class="pmng">Mifta Hul Jannah</p>
+                <p class="w-desk">Terrandom dikelas</p>
+              </div>
+              <button data-name="Mifta Hul Jannah" class="btn-kjng">
+                Kunjungi
+              </button>
+            </div>
+
+            <div class="terapa" data-aos="fade-right">
+              <div class="imges">
+                <img src="/image/user.jpg" width="50" height="50" />
+              </div>
+              <div class="text">
+                <p class="pmng">Hervian Nugiensyah</p>
+                <p class="w-desk">Pelawak dikelas</p>
+              </div>
+              <button class="btn-kjng">Not found</button>
+            </div>
+
+            <div class="terapa" data-aos="fade-right" data-aos-delay="300">
+              <div class="imges">
+                <img src="/image/user.jpg" width="50" height="50" />
+              </div>
+              <div class="text">
+                <p class="pmng">Yafiq Ris Khaizuran</p>
+                <p class="w-desk">Cowok Terambis dikelas</p>
+              </div>
+              <button data-name="Yafiq Ris Khaizuran" class="btn-kjng">
+                Kunjungi
+              </button>
+            </div>
+
+            <div class="terapa" data-aos="fade-right" data-aos-delay="600">
+              <div class="imges">
+                <img src="/image/user.jpg" width="50" height="50" />
+              </div>
+              <div class="text">
+                <p class="pmng">Nabila Rahmadani</p>
+                <p class="w-desk">Cewek Terambis dikelas</p>
+              </div>
+              <button data-name="Nabila Ramadani" class="btn-kjng">
+                Kunjungi
+              </button>
+            </div>
+          </div>
+          <p class="des f-desk" data-aos="fade-up" data-aos-delay="300">
+            Banyak banget fakta menarik di VIIID, loh! 🤩 Yuk, mampir dan
+            ngobrol langsung sama murid-murid di kelas VIIID. 😆 Kamu bakal
+            nemuin berbagai hal seru dan unik yang mereka lakuin setiap hari😎.
+            Jangan lewatkan kesempatan buat kenal lebih dekat sama kelas yang
+            penuh inspirasi ini!🤭
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="dos">
+          <div class="des">
+            <p class="f-title" data-aos="fade-right">😆 Terimakasih</p>
+            <p class="f-desk" data-aos="fade-right" data-aos-delay="300">
+              Terimakasih telah mengunjungi website dari kelas VIIID😁, walaupun
+              masih memiliki fitur yang belum jadi karna keterbatasan waktu,
+              tetapi yah cukup lah untuk ngobrol😆, saat ini website ini dibikin
+              oleh muhammad nabil sendiri yang memakan waktu 5hari, perhari nya
+              4-6jam😉, saat ini baru ada fitur komentar untuk setiap murid dan
+              informasinya, kedepan nya kami akan membuat sistem login admin &
+              member biasa, serta para murid VIIID bisa menetapkan informasi nya
+              sendiri, serta beberapa sistem CRUD, kami akan menggunakan Request
+              API Instagram, dan mungkin Tiktok, serta para murid VIIID bisa
+              memposting aktivitas/status sendiri nantinya.
+            </p>
+            <p class="f-title sd" data-aos="fade-up" data-aos-delay="400">
+              👩‍💻Teknologi yang digunakan untuk membangun website ini
+            </p>
+            <ul>
+              <li data-aos="fade-right" data-aos-delay="300" class="f-desk">
+                <img
+                  src="/image/nodejs.png"
+                  width="25"
+                  height="25"
+                  alt=""
+                />Node.js untuk backend
+              </li>
+              <li data-aos="fade-left" data-aos-delay="500" class="f-desk">
+                <img
+                  src="/image/express.png"
+                  width="25"
+                  height="25"
+                  alt=""
+                />Express.js untuk management server
+              </li>
+              <li data-aos="fade-right" data-aos-delay="800" class="f-desk">
+                <img src="/image/mo.png" width="25" height="25" alt="" />MongoDB
+                untuk database
+              </li>
+              <li data-aos="fade-left" data-aos-delay="1000" class="f-desk">
+                <img
+                  src="/image/socket.png"
+                  width="25"
+                  height="25"
+                  alt=""
+                />Socket.io untuk sistem komentar real-time
+              </li>
+              <li data-aos="fade-right" data-aos-delay="1200" class="f-desk">
+                <img src="/image/ejs.png" width="35" height="25" alt="" />EJS
+                untuk template javascript ke html
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="komentar">
+        <div class="dos">
+          <div class="des">
+            <p class="f-title" data-aos="fade-right">📫 Komentar</p>
+            <p class="f-desk" data-aos="fade-right" data-aos-delay="300">
+              Yuk, berikan komentar mu tentang kelas kami😁, nanti akan dibalas
+              oleh admin😙, berkomentar dengan kata yang sopan dan bijak ya😀.
+            </p>
+          </div>
+
+          <div class="dos commentar_list">
+            <% comments.forEach((isi, index) => { %>
+            <div class="commentar_body">
+              <div class="comment_header">
+                <img src="/image/user.jpg" alt="" />
+                <div class="who_comment">
+                  <p class="name_comment"><%= isi.username %></p>
+                  <p class="time"><%= isi.date %></p>
+                </div>
+              </div>
+
+              <div class="commentar_text">
+                <p><%= isi.text %></p>
+                <p
+                  class="reply"
+                  data-textid="<%= isi.id %>"
+                  style="font-weight: 500; margin-top: 5px; cursor: pointer"
+                >
+                  Balas
+                </p>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+          <div class="dos commentar_input">
+            <div class="group">
+              <img src="/image/user.jpg" alt="" />
+              <input
+                type="text"
+                class="inputed"
+                placeholder="Berikan komentarmu😊"
+                name=""
+                id=""
+              />
+              <button class="btn-sendct false">
+                <i class="fa-solid fa-arrow-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module">
+      AOS.init();
+
+      const buttonURL = document.querySelectorAll(".btn-url");
+      const buttonKunjungi = document.querySelectorAll(".btn-kjng");
+
+      buttonKunjungi.forEach((button) => {
+        button.addEventListener("click", () => {
+          window.location.href = `/info/murid/${button.dataset.name}`;
+        });
+      });
+
+      buttonURL.forEach((button) => {
+        button.addEventListener("click", () => {
+          window.location.href = "/info/murid/" + button.dataset.url;
+        });
+      });
+
+      const socket = io();
+      const buttonSendComment = document.querySelector(".btn-sendct");
+      const commentInput = document.querySelector(".inputed");
+      const commentList = document.querySelector(".commentar_list");
+
+      socket.on("load_class_comment", (comments) => {
+        addElement(comments.username, "less than a minute", comments.text);
+      });
+
+      commentInput.addEventListener("input", () => {
+        if (commentInput.value.length > 0) {
+          buttonSendComment.classList.remove("false");
+        } else {
+          buttonSendComment.classList.add("false");
+        }
+      });
+
+      buttonSendComment.addEventListener("click", () => {
+        if (!buttonSendComment.classList.contains("false")) {
+          const date = new Date();
+          const ISODate = date.toISOString();
+
+          const newComment = {
+            username: "User",
+            date: ISODate,
+            text: commentInput.value,
+          };
+
+          socket.emit("class_comment", newComment);
+          commentInput.value = "";
+        }
+      });
+
+      const replyButton = document.querySelectorAll(".reply");
+      
+      replyButton.forEach((reply) => {
+        reply.addEventListener("click", (e) => {
+          window.location.href = `/view/comment/${e.currentTarget.dataset.textid}`;
+        })
+      })
+
+      function addElement(username, date, text) {
+        const commentBody = document.createElement("div");
+        commentBody.classList.add("commentar_body");
+
+        const commentHeader = document.createElement("div");
+        commentHeader.classList.add("comment_header");
+
+        const img = document.createElement("img");
+        img.src = "/image/kosong.jpg";
+        img.alt = "";
+
+        const whoComment = document.createElement("div");
+        whoComment.classList.add("who_comment");
+
+        const nameComment = document.createElement("p");
+        nameComment.classList.add("name_comment");
+        nameComment.textContent = username;
+
+        const time = document.createElement("p");
+        time.classList.add("time");
+        time.textContent = date;
+
+        whoComment.appendChild(nameComment);
+        whoComment.appendChild(time);
+
+        commentHeader.appendChild(img);
+        commentHeader.appendChild(whoComment);
+
+        const commentText = document.createElement("div");
+        commentText.classList.add("commentar_text");
+
+        const textP = document.createElement("p");
+        textP.textContent = text;
+
+        commentText.appendChild(textP);
+
+        commentBody.appendChild(commentHeader);
+        commentBody.appendChild(commentText);
+
+        commentList.appendChild(commentBody);
+      }
+    </script>
+  </body>
+</html>

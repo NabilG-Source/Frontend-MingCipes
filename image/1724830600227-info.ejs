@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="/image/logo.png" type="png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/info.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Info Murid - <%= muridFound.nama %></title>
+  </head>
+  <body>
+    <div class="container-sys">
+      <div data-aos="fade-right" data-aos-delay="200" class="notif" >
+        <div class="not">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="ct-notif" >
+          <p class="unverify">
+            <%= muridFound.nama %> memiliki beberapa informasi yang masih tidak
+            spesifik
+          </p>
+          <p class="un-desk">
+            Segera mungkin kami akan menanyakan kepada <%= muridFound.nama %>
+            untuk informasi yang lebih spesifik
+          </p>
+        </div>
+      </div>
+
+      <div class="landed">
+        <div class="profiled" data-aos-delay="400" data-aos="fade-right">
+          <img  src="/image/<%= muridFound.profile %>.jpg" alt="" />
+          <div class="he">
+            <p class="hello">Halo nama saya</p>
+            <h3 class="nama"><%= muridFound.nama %> 👋</h3>
+          </div>
+        </div>
+        <div class="ct-murid">
+          <div class="inf-c" data-aos="fade-right" data-aos-delay="1000">
+            <p class="first">Nama Murid</p>
+            <p class="last"><%= muridFound.nama %></p>
+          </div>
+          <div class="inf-c"  data-aos="fade-right" data-aos-delay="800">
+            <p class="first">Hari Piket</p>
+            <p class="last"><%= muridFound.piket %></p>
+          </div>
+          <div class="inf-c"  data-aos="fade-right" data-aos-delay="600">
+            <p class="first">Jenis Kelamin</p>
+            <p class="last"><%= muridFound.kelamin %></p>
+          </div>
+          <div class="inf-c" data-aos="fade-right" data-aos-delay="400">
+            <p class="first">Tanggal Lahir</p>
+            <p class="last">Tidak Terdaftar</p>
+          </div>
+          <div class="inf-c" data-aos="fade-right" data-aos-delay="200">
+            <p class="first">Hobi</p>
+            <p class="last">Tidak Terdaftar</p>
+          </div>
+          <div class="inf-c" data-aos="fade-right">
+            <p class="first">Peran dikelas</p>
+            <p class="last">Tidak Terdaftar</p>
+          </div>
+        </div>
+
+        <button class="btn-back" data-aos="fade-up" data-aos-delay="1200">Kembali Ke Halaman Awal</button>
+      </div>
+
+      <div class="komentar-ct">
+        <header class="kom" data-aos="fade-right" data-aos-delay="1500">
+          Berikan Komentar Untuk <%= muridFound.nama %> 💬
+        </header>
+        <div class="panel-komentar" data-aos="fade-right" data-aos-delay="1800">
+          <% komen.forEach((isi, index) => { %>
+
+            <div class="s-komentar" >
+              <div class="who">
+                <img src="/image/kosong.jpg" width="45" height="45" style="border-radius: 50em;" alt="">
+                <div class="text">
+                  <p class="n-komentar"><%= isi.namaOrang %></p>
+                  <p class="waktu">Tidak Teridentifikasi</p>
+                </div>
+              </div>
+              <p class="t-komentar"><%= isi.komentar %></p>
+              <p class="kebe">#<%= index+1 %></p>
+            </div>
+          <% }) %>
+        </div>
+        <div class="sampaikan" data-aos="fade-left">
+          <input type="text" name="komenInput" id="komenInput" />
+          <button class="btn-send" class="btn-back" data-aos="fade-up" data-aos-delay="200">
+            Kirim Komentar <i class="bx bx-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="selebihnya" data-aos="fade-left">
+        <header >Kunjungi Juga 32 Murid Lainnya 😀</header>
+        <% muridLainnya.forEach(ss => { %>
+       
+          <img
+            class="btn-url"
+            data-url="<%= ss.nama %>"
+            src="/image/<%= ss.profile %>.jpg"
+            alt=""
+          />
+        <% }) %>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      AOS.init();
+      const buttonURL = document.querySelectorAll(".btn-url");
+      const buttonBack = document.querySelector(".btn-back");
+      const panel = document.querySelector(".panel-komentar");
+
+      buttonBack.addEventListener("click", () => {
+        window.location.href = "/#tentangkami"
+      })
+
+      buttonURL.forEach((button) => {
+        button.addEventListener("click", () => {
+          window.location.href = "/info/murid/" + button.dataset.url;
+        });
+      });
+
+      const socket = io();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        socket.on("load_comments", async (comments) => {
+          console.log("Komentar diterima:", comments);
+          panel.innerHTML = ""; // Kosongkan komentar yang ada (opsional)
+
+          comments.forEach(async (comment) => {
+            const hasil = await createCommentElement(
+              comment.namaOrang,
+              comment.komentar,
+              comment.keberapa
+            );
+            panel.appendChild(hasil);
+          });
+          console.log("Komentar dimuat");
+        });
+
+        socket.on("new_comment", (comments) => {
+          socket.emit("load_comments", comments);
+        });
+
+        const btnSend = document.querySelector(".btn-send");
+
+        btnSend.addEventListener("click", () => {
+          sendComment();
+        });
+
+        function sendComment() {
+          const komenInput = document.getElementById("komenInput");
+          const komenInputValue = komenInput.value;
+
+          const currentURL = new URL(window.location.href);
+          const urlPath = currentURL.pathname;
+
+          const segmentsURL = urlPath.split("/").filter(Boolean);
+          const namaMurid = decodeURIComponent(segmentsURL[2]);
+          console.log(segmentsURL);
+
+          const comments = {
+            namaOrang: namaMurid,
+            komentar: komenInputValue,
+            keberapa: 0,
+          };
+
+          socket.emit("new_comment", comments);
+          komenInput.value = "";
+        }
+
+        function createCommentElement(username, comment, index) {
+          const sKomentarDiv = document.createElement("div");
+          sKomentarDiv.classList.add("s-komentar");
+
+          const whoDiv = document.createElement("div");
+          whoDiv.classList.add("who");
+
+          const img = document.createElement("img");
+          img.src = "/image/kosong.jpg";
+          img.width = 45;
+          img.height = 45;
+          img.style.borderRadius = "50em";
+          img.alt = "";
+
+          const textDiv = document.createElement("div");
+          textDiv.classList.add("text");
+
+          const nKomentarP = document.createElement("p");
+          nKomentarP.classList.add("n-komentar");
+          nKomentarP.textContent = username;
+
+          const waktuP = document.createElement("p");
+          waktuP.classList.add("waktu");
+          waktuP.textContent = "Tidak Teridentifikasi"; // Kamu bisa mengganti ini dengan data waktu yang sebenarnya
+
+          textDiv.appendChild(nKomentarP);
+          textDiv.appendChild(waktuP);
+
+          whoDiv.appendChild(img);
+          whoDiv.appendChild(textDiv);
+
+          const tKomentarP = document.createElement("p");
+          tKomentarP.classList.add("t-komentar");
+          tKomentarP.textContent = comment;
+
+          const kebeP = document.createElement("p");
+          kebeP.classList.add("kebe");
+          kebeP.textContent = `#${index + 1}`;
+
+          sKomentarDiv.appendChild(whoDiv);
+          sKomentarDiv.appendChild(tKomentarP);
+          sKomentarDiv.appendChild(kebeP);
+
+          return sKomentarDiv;
+        }
+      });
+    </script>
+  </body>
+</html>

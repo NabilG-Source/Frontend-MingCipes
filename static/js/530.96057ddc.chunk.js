@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[530],{530:(e,s,d)=>{d.r(s),d.d(s,{default:()=>n});d(43);var a=d(579);const n=e=>{const{index:s,namaResep:d,dateAdded:n}=e;return(0,a.jsxs)("div",{className:"recent-card",children:[(0,a.jsx)("i",{className:"fa-solid fa-bowl-food"}),(0,a.jsxs)("header",{children:[(0,a.jsx)("p",{children:d}),(0,a.jsx)("p",{className:"date",children:n})]})]},s+1)}}}]);
+//# sourceMappingURL=530.96057ddc.chunk.js.map
